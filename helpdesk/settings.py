@@ -76,11 +76,16 @@ WSGI_APPLICATION = 'helpdesk.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'helpdesk',                      
+        'USER': 'postgres',                      
+        'PASSWORD': 'postgres0123',
+        'HOST': '127.0.0.1',                      
+        'PORT': '',                 
     }
 }
 
+AUTH_USER_MODEL = 'users.UserProfile'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
