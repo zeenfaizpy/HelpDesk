@@ -13,6 +13,12 @@ class ServiceKeyword(TimestampedModel):
     """
     name = models.CharField(max_length=300)
 
+    def __unicode__(self):
+        """
+        Show the object in a readable way.
+        """
+        return self.name
+
 class Service(TimestampedModel):
     """
     Model to keep track of service.
@@ -20,6 +26,12 @@ class Service(TimestampedModel):
     name = models.CharField(max_length=300)
     keywords = models.ManyToManyField(ServiceKeyword,
                                       related_name="services")
+
+    def __unicode__(self):
+        """
+        Show the object in a readable way.
+        """
+        return self.name
 
 class Provider(TimestampedModel):
     """
@@ -37,6 +49,12 @@ class Provider(TimestampedModel):
     type = models.PositiveIntegerField(choices=TYPE_CHOICES)
     services = models.ManyToManyField(Service,
                                       related_name="providers")
+
+    def __unicode__(self):
+        """
+        Show the object in a readable way.
+        """
+        return self.name
 
 
 class Address(TimestampedModel):
@@ -74,3 +92,9 @@ class Address(TimestampedModel):
                                                 regex=r'^\d+$',
                                                 message='Only digits are allowed'
                                                     )])
+
+    def __unicode__(self):
+        """
+        Show the object in a readable way.
+        """
+        return self.address_label
