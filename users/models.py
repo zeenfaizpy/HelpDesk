@@ -36,4 +36,4 @@ class UserProfile(AbstractUser):
         """
         Show the object in a readable way.
         """
-        return self.full_name()
+        return "%s %s" %(self.first_name, self.last_name)
