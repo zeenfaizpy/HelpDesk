@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')!ngqz@q-wcad$o7q(7i3zpra@wa(8z-jxsx4wtcgacqp5d^z6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'helpdesk.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'helpdesk',                      
-        'USER': 'postgres',                      
-        'PASSWORD': 'postgres0123',
-        'HOST': '127.0.0.1',                      
+        'NAME': '',                      
+        'USER': '',                      
+        'PASSWORD': '',
+        'HOST': '12',                      
         'PORT': '',                 
     }
 }
