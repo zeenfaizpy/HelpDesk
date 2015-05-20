@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -92,6 +93,15 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
+# Parse database configuration from $DATABASE_URL
+DATABASES['default'] =  dj_database_url.config()
+
+# Enable Connection Pooling (if desired)
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -111,13 +121,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
