@@ -1,11 +1,13 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from .views import HomeView
+
 urlpatterns = [
     # Examples:
     # url(r'^$', 'helpdesk.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', HomeView.as_view(), name='home'),
     # url(r'^auth/', include('users.urls')),
 ]
