@@ -1,5 +1,12 @@
-from __future__ import unicode_literals
-
 from django.db import models
 
-# Create your models here.
+
+class TimestampedModel(models.Model):
+    """
+    Helper model to save created date and last modified date.
+    """
+    created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
